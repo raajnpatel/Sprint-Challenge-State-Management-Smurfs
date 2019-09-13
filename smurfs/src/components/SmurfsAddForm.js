@@ -16,6 +16,12 @@ const SmurfsAddForm = () => {
     const handleSubmit = e => {
         e.preventDefault();
         console.log(smurf);
+
+        axios
+            .post(`http://localhost:3333/smurfs`, smurf)
+            .then(res => console.log(res))
+            .catch(err => console.log(err.response));
+
         setSmurf({
             name: "",
             age: "",
